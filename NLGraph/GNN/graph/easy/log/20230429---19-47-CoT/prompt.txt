@@ -1,0 +1,57 @@
+In an undirected graph, the nodes are numbered from 0 to 4, and every node has an embedding. (i,j) means that node i and node j are connected with an undirected edge.
+Embeddings:
+node 0: [1,1]
+node 1: [0,1]
+node 2: [0,1]
+node 3: [1,1]
+node 4: [0,1]
+The edges are: (0,1) (1,4) (2,1) (2,4) (4,3)
+In a simple graph convolution layer, each node's embedding is updated by the sum of its neighbors' embeddings.
+Q: What's the embedding of each node after two layers of simple graph convolution layer?
+A:
+Layer 1:
+node 0: sum of embeddings of node 1, [0,1] = [0,1].
+node 1: sum of embeddings of node 0, node 2, node 4, [1,1] + [0,1] + [0,1] = [1,3].
+node 2: sum of embeddings of node 1, node 4, [0,1] + [0,1] = [0,2].
+node 3: sum of embeddings of node 4, [0,1] = [0,1].
+node 4: sum of embeddings of node 1, node 2, node 3, [0,1] + [0,1] + [1,1] = [1,3].
+
+After layer 1, the node embeddings are updated to:
+node 0: [0,1]
+node 1: [1,3]
+node 2: [0,2]
+node 3: [0,1]
+node 4: [1,3]
+
+Layer 2:
+node 0: sum of embeddings of node 1, [1,3] = [1,3].
+node 1: sum of embeddings of node 0, node 2, node 4, [0,1] + [0,2] + [1,3] = [1,6].
+node 2: sum of embeddings of node 1, node 4, [1,3] + [1,3] = [2,6].
+node 3: sum of embeddings of node 4, [1,3] = [1,3].
+node 4: sum of embeddings of node 1, node 2, node 3, [1,3] + [0,2] + [0,1] = [1,6].
+
+So the answer is:
+node 0: [1,3]
+node 1: [1,6]
+node 2: [2,6]
+node 3: [1,3]
+node 4: [1,6]
+
+
+In an undirected graph, the nodes are numbered from 0 to 7, and every node has an embedding. (i,j) means that node i and node j are connected with an undirected edge.
+Embeddings:
+node 0: [0,0]
+node 1: [0,0]
+node 2: [1,1]
+node 3: [0,0]
+node 4: [0,1]
+node 5: [0,1]
+node 6: [0,1]
+node 7: [0,1]
+The edges are: (0,7) (0,2) (1,4) (1,3) (1,2) (2,5) (2,4) (3,5) (4,6) (4,5) (4,7) (5,6) (5,7) (6,7)
+In a simple graph convolution layer, each node's embedding is updated by the sum of its neighbors' embeddings.
+Q: What's the embedding of each node after two layers of simple graph convolution layer?
+A:
+Acc: 30/100
+
+Namespace(model=0, mode='easy', prompt='CoT', T=0, token=2000, SC=0, SC_num=5)

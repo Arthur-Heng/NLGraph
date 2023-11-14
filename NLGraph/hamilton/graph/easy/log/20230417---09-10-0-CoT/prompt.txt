@@ -1,0 +1,8 @@
+In an undirected graph, (i,j) means that node i and node j are connected with an undirected edge.
+The nodes are numbered from 0 to 9, and the edges are: (0,8) (0,2) (0,3) (0,9) (0,6) (0,5) (0,1) (1,7) (1,2) (1,5) (1,9) (1,4) (2,3) (2,4) (2,8) (2,9) (3,8) (4,7) (4,5) (4,9) (4,8) (5,6) (5,8) (5,7) (6,9) (6,7) (6,8) (7,8) (8,9)
+Q: Is there a path in this graph that visits every node exactly once? If yes, give the path. Note that in a path, adjacent nodes must be connected with edges.
+A: Let's think step by step:
+Acc: 22/150
+Acc2: 149/150
+
+Namespace(model=0, mode='easy', prompt='0-CoT', T=0, token=400, SC=0, SC_num=5)

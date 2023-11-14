@@ -1,0 +1,127 @@
+There are 4 job applicants numbered from 0 to 3, and 5 jobs numbered from 0 to 4. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 4.
+Applicant 3 is interested in job 2.
+Applicant 2 is interested in job 2.
+Applicant 3 is interested in job 1.
+Applicant 2 is interested in job 0.
+Applicant 2 is interested in job 4.
+Let's construct a graph based on the above information first.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 4.
+Applicant 2 is interested in job 0, job 2, job 4.
+Applicant 3 is interested in job 1, job 2.
+We can make the following assignments:
+applicant 0: job 4
+applicant 2: job 0
+applicant 3: job 1
+3 applicants can find the job they are interested in.
+
+There are 5 job applicants numbered from 0 to 4, and 6 jobs numbered from 0 to 5. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 0.
+Applicant 3 is interested in job 3.
+Applicant 4 is interested in job 3.
+Applicant 4 is interested in job 5.
+Applicant 3 is interested in job 4.
+Applicant 1 is interested in job 0.
+Applicant 2 is interested in job 3.
+Applicant 4 is interested in job 1.
+Applicant 2 is interested in job 4.
+Applicant 0 is interested in job 3.
+Let's construct a graph based on the above information first.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 0, job 3.
+Applicant 1 is interested in job 0.
+Applicant 2 is interested in job 3, job 4.
+Applicant 3 is interested in job 3, job 4.
+Applicant 4 is interested in job 1, job 3, job 5.
+We can make the following assignments:
+applicant 0: job 3
+applicant 1: job 0
+applicant 2: job 4
+applicant 4: job 1
+4 applicants can find the job they are interested in.
+
+There are 5 job applicants numbered from 0 to 4, and 5 jobs numbered from 0 to 4. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 3 is interested in job 4.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 0.
+Applicant 4 is interested in job 1.
+Applicant 3 is interested in job 3.
+Applicant 4 is interested in job 0.
+Applicant 0 is interested in job 3.
+Let's construct a graph based on the above information first.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 3.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 0.
+Applicant 3 is interested in job 3, job 4.
+Applicant 4 is interested in job 0, job 1.
+We can make the following assignments:
+applicant 0: job 3
+applicant 1: job 1
+applicant 2: job 0
+applicant 3: job 4
+4 applicants can find the job they are interested in.
+
+There are 6 job applicants numbered from 0 to 5, and 6 jobs numbered from 0 to 5. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 2 is interested in job 0.
+Applicant 0 is interested in job 3.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 3.
+Applicant 5 is interested in job 4.
+Applicant 3 is interested in job 0.
+Applicant 3 is interested in job 1.
+Applicant 2 is interested in job 2.
+Applicant 2 is interested in job 1.
+Applicant 5 is interested in job 3.
+Applicant 4 is interested in job 2.
+Applicant 0 is interested in job 1.
+Applicant 2 is interested in job 5.
+Applicant 0 is interested in job 2.
+Applicant 5 is interested in job 5.
+Let's construct a graph based on the above information first.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 1, job 2, job 3.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 0, job 1, job 2, job 3, job 5.
+Applicant 3 is interested in job 0, job 1.
+Applicant 4 is interested in job 2.
+Applicant 5 is interested in job 3, job 4, job 5.
+We can make the following assignments:
+applicant 0: job 3
+applicant 1: job 1
+applicant 2: job 5
+applicant 3: job 0
+applicant 4: job 2
+applicant 5: job 4
+6 applicants can find the job they are interested in.
+
+There are 7 job applicants numbered from 0 to 6, and 5 jobs numbered from 0 to 4. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 5.
+Applicant 0 is interested in job 6.
+Applicant 0 is interested in job 3.
+Applicant 5 is interested in job 3.
+Applicant 4 is interested in job 4.
+Applicant 3 is interested in job 6.
+Applicant 1 is interested in job 6.
+Applicant 0 is interested in job 2.
+Applicant 2 is interested in job 2.
+Applicant 2 is interested in job 5.
+Applicant 5 is interested in job 5.
+Applicant 3 is interested in job 5.
+Applicant 1 is interested in job 2.
+Let's construct a graph based on the above information first.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 2, job 3, job 5, job 6.
+Applicant 1 is interested in job 2, job 6.
+Applicant 2 is interested in job 2, job 5.
+Applicant 3 is interested in job 5, job 6.
+Applicant 4 is interested in job 4.
+Applicant 5 is interested in job 3, job 5.
+We can make the following assignments:
+applicant 0: job 2
+applicant 1: job 6
+applicant 2: job 5
+applicant 4: job 4
+applicant 5: job 3
+5 applicants can find the job they are interested in.

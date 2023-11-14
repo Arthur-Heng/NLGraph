@@ -1,0 +1,6 @@
+Determine if there is a path between two nodes in the graph. Note that (i,j) means that node i and node j are connected with an undirected edge.
+Graph: (0,3) (0,7) (0,4) (1,2) (1,9) (3,7) (3,4) (4,8) (5,6) (6,9) (7,8)
+Q: Is there a path between node 2 and node 5?
+A:
+Acc: 62/120
+Namespace(model=0, mode='line', prompt='none', T=0, token=256, SC=0, SC_num=5)

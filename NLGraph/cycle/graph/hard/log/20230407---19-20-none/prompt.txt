@@ -1,0 +1,6 @@
+In an undirected graph, (i,j) means that node i and node j are connected with an undirected edge.
+The nodes are numbered from 0 to 34, and the edges are: (6,33) (12,34) (0,3) (2,12) (28,6) (23,0) (30,27) (27,22) (5,0) (16,15) (13,3) (0,14) (1,18) (16,20) (31,22) (16,5) (27,16) (10,14) (22,21) (1,0) (23,26) (27,29) (8,1) (9,12) (20,0) (4,18) (24,11) (4,29) (25,32) (1,11) (17,4) (24,7) (25,6) (2,0) (17,19) (19,32) (25,13) (4,0)
+Q: Is there a loop in this graph?
+A:
+Acc: 211/400
+Namespace(model=0, mode='hard', prompt='none', T=0, token=400, SC=0, SC_num=5)

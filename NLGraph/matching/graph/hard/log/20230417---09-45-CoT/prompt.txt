@@ -1,0 +1,232 @@
+There are 4 job applicants numbered from 0 to 3, and 5 jobs numbered from 0 to 4. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 4.
+Applicant 3 is interested in job 2.
+Applicant 2 is interested in job 2.
+Applicant 3 is interested in job 1.
+Applicant 2 is interested in job 0.
+Applicant 2 is interested in job 4.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 4.
+Applicant 2 is interested in job 0, job 2, job 4.
+Applicant 3 is interested in job 1, job 2.
+We can make the following assignments:
+applicant 0: job 4
+applicant 2: job 0
+applicant 3: job 1
+3 applicants can find the job they are interested in.
+
+There are 5 job applicants numbered from 0 to 4, and 6 jobs numbered from 0 to 5. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 0.
+Applicant 3 is interested in job 3.
+Applicant 4 is interested in job 3.
+Applicant 4 is interested in job 5.
+Applicant 3 is interested in job 4.
+Applicant 1 is interested in job 0.
+Applicant 2 is interested in job 3.
+Applicant 4 is interested in job 1.
+Applicant 2 is interested in job 4.
+Applicant 0 is interested in job 3.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 0, job 3.
+Applicant 1 is interested in job 0.
+Applicant 2 is interested in job 3, job 4.
+Applicant 3 is interested in job 3, job 4.
+Applicant 4 is interested in job 1, job 3, job 5.
+We can make the following assignments:
+applicant 0: job 3
+applicant 1: job 0
+applicant 2: job 4
+applicant 4: job 1
+4 applicants can find the job they are interested in.
+
+There are 5 job applicants numbered from 0 to 4, and 5 jobs numbered from 0 to 4. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 3 is interested in job 4.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 0.
+Applicant 4 is interested in job 1.
+Applicant 3 is interested in job 3.
+Applicant 4 is interested in job 0.
+Applicant 0 is interested in job 3.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 3.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 0.
+Applicant 3 is interested in job 3, job 4.
+Applicant 4 is interested in job 0, job 1.
+We can make the following assignments:
+applicant 0: job 3
+applicant 1: job 1
+applicant 2: job 0
+applicant 3: job 4
+4 applicants can find the job they are interested in.
+
+There are 6 job applicants numbered from 0 to 5, and 6 jobs numbered from 0 to 5. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 2 is interested in job 0.
+Applicant 0 is interested in job 3.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 3.
+Applicant 5 is interested in job 4.
+Applicant 3 is interested in job 0.
+Applicant 3 is interested in job 1.
+Applicant 2 is interested in job 2.
+Applicant 2 is interested in job 1.
+Applicant 5 is interested in job 3.
+Applicant 4 is interested in job 2.
+Applicant 0 is interested in job 1.
+Applicant 2 is interested in job 5.
+Applicant 0 is interested in job 2.
+Applicant 5 is interested in job 5.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 1, job 2, job 3.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 0, job 1, job 2, job 3, job 5.
+Applicant 3 is interested in job 0, job 1.
+Applicant 4 is interested in job 2.
+Applicant 5 is interested in job 3, job 4, job 5.
+We can make the following assignments:
+applicant 0: job 3
+applicant 1: job 1
+applicant 2: job 5
+applicant 3: job 0
+applicant 4: job 2
+applicant 5: job 4
+6 applicants can find the job they are interested in.
+
+There are 7 job applicants numbered from 0 to 6, and 5 jobs numbered from 0 to 4. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 5.
+Applicant 0 is interested in job 6.
+Applicant 0 is interested in job 3.
+Applicant 5 is interested in job 3.
+Applicant 4 is interested in job 4.
+Applicant 3 is interested in job 6.
+Applicant 1 is interested in job 6.
+Applicant 0 is interested in job 2.
+Applicant 2 is interested in job 2.
+Applicant 2 is interested in job 5.
+Applicant 5 is interested in job 5.
+Applicant 3 is interested in job 5.
+Applicant 1 is interested in job 2.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A: Applicant 0 is interested in job 2, job 3, job 5, job 6.
+Applicant 1 is interested in job 2, job 6.
+Applicant 2 is interested in job 2, job 5.
+Applicant 3 is interested in job 5, job 6.
+Applicant 4 is interested in job 4.
+Applicant 5 is interested in job 3, job 5.
+We can make the following assignments:
+applicant 0: job 2
+applicant 1: job 6
+applicant 2: job 5
+applicant 4: job 4
+applicant 5: job 3
+5 applicants can find the job they are interested in.
+
+
+There are 15 job applicants numbered from 0 to 14, and 18 jobs numbered from 0 to 17. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 7.
+Applicant 0 is interested in job 8.
+Applicant 0 is interested in job 16.
+Applicant 0 is interested in job 11.
+Applicant 0 is interested in job 14.
+Applicant 1 is interested in job 13.
+Applicant 1 is interested in job 17.
+Applicant 1 is interested in job 12.
+Applicant 2 is interested in job 9.
+Applicant 2 is interested in job 13.
+Applicant 2 is interested in job 15.
+Applicant 2 is interested in job 17.
+Applicant 2 is interested in job 2.
+Applicant 3 is interested in job 16.
+Applicant 3 is interested in job 8.
+Applicant 3 is interested in job 7.
+Applicant 3 is interested in job 10.
+Applicant 3 is interested in job 11.
+Applicant 3 is interested in job 6.
+Applicant 3 is interested in job 2.
+Applicant 3 is interested in job 15.
+Applicant 3 is interested in job 12.
+Applicant 3 is interested in job 1.
+Applicant 4 is interested in job 0.
+Applicant 4 is interested in job 13.
+Applicant 4 is interested in job 12.
+Applicant 4 is interested in job 8.
+Applicant 4 is interested in job 6.
+Applicant 4 is interested in job 11.
+Applicant 4 is interested in job 17.
+Applicant 4 is interested in job 9.
+Applicant 4 is interested in job 4.
+Applicant 5 is interested in job 17.
+Applicant 5 is interested in job 9.
+Applicant 5 is interested in job 13.
+Applicant 5 is interested in job 8.
+Applicant 5 is interested in job 12.
+Applicant 5 is interested in job 15.
+Applicant 5 is interested in job 14.
+Applicant 5 is interested in job 5.
+Applicant 5 is interested in job 3.
+Applicant 5 is interested in job 6.
+Applicant 6 is interested in job 10.
+Applicant 6 is interested in job 6.
+Applicant 6 is interested in job 13.
+Applicant 6 is interested in job 5.
+Applicant 6 is interested in job 15.
+Applicant 6 is interested in job 12.
+Applicant 6 is interested in job 14.
+Applicant 6 is interested in job 1.
+Applicant 6 is interested in job 4.
+Applicant 6 is interested in job 7.
+Applicant 7 is interested in job 14.
+Applicant 7 is interested in job 8.
+Applicant 7 is interested in job 1.
+Applicant 7 is interested in job 15.
+Applicant 7 is interested in job 16.
+Applicant 7 is interested in job 5.
+Applicant 7 is interested in job 0.
+Applicant 8 is interested in job 1.
+Applicant 8 is interested in job 10.
+Applicant 8 is interested in job 12.
+Applicant 8 is interested in job 3.
+Applicant 9 is interested in job 3.
+Applicant 9 is interested in job 0.
+Applicant 9 is interested in job 8.
+Applicant 9 is interested in job 14.
+Applicant 10 is interested in job 1.
+Applicant 10 is interested in job 0.
+Applicant 10 is interested in job 13.
+Applicant 10 is interested in job 9.
+Applicant 10 is interested in job 2.
+Applicant 10 is interested in job 6.
+Applicant 11 is interested in job 6.
+Applicant 11 is interested in job 9.
+Applicant 11 is interested in job 1.
+Applicant 11 is interested in job 17.
+Applicant 11 is interested in job 8.
+Applicant 11 is interested in job 4.
+Applicant 11 is interested in job 15.
+Applicant 11 is interested in job 11.
+Applicant 11 is interested in job 2.
+Applicant 12 is interested in job 2.
+Applicant 12 is interested in job 15.
+Applicant 13 is interested in job 17.
+Applicant 13 is interested in job 5.
+Applicant 13 is interested in job 13.
+Applicant 13 is interested in job 4.
+Applicant 13 is interested in job 7.
+Applicant 13 is interested in job 10.
+Applicant 13 is interested in job 16.
+Applicant 13 is interested in job 8.
+Applicant 14 is interested in job 2.
+Applicant 14 is interested in job 16.
+Applicant 14 is interested in job 9.
+Applicant 14 is interested in job 7.
+Applicant 14 is interested in job 1.
+Applicant 14 is interested in job 17.
+Applicant 14 is interested in job 6.
+Applicant 14 is interested in job 5.
+Applicant 14 is interested in job 12.
+Applicant 14 is interested in job 14.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A:
+Acc: 28/210
+
+Namespace(model=0, mode='hard', prompt='CoT', T=0, token=400, SC=0, SC_num=5)

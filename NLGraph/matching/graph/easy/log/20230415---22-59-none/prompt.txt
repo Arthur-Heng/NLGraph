@@ -1,0 +1,38 @@
+There are 9 job applicants numbered from 0 to 8, and 11 jobs numbered from 0 to 10. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 0 is interested in job 9.
+Applicant 0 is interested in job 8.
+Applicant 0 is interested in job 4.
+Applicant 0 is interested in job 0.
+Applicant 1 is interested in job 3.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 5.
+Applicant 2 is interested in job 6.
+Applicant 2 is interested in job 4.
+Applicant 2 is interested in job 9.
+Applicant 2 is interested in job 0.
+Applicant 2 is interested in job 8.
+Applicant 2 is interested in job 1.
+Applicant 3 is interested in job 7.
+Applicant 3 is interested in job 8.
+Applicant 4 is interested in job 9.
+Applicant 4 is interested in job 6.
+Applicant 5 is interested in job 1.
+Applicant 5 is interested in job 2.
+Applicant 5 is interested in job 7.
+Applicant 6 is interested in job 1.
+Applicant 6 is interested in job 0.
+Applicant 6 is interested in job 2.
+Applicant 6 is interested in job 3.
+Applicant 6 is interested in job 7.
+Applicant 7 is interested in job 4.
+Applicant 7 is interested in job 0.
+Applicant 7 is interested in job 6.
+Applicant 8 is interested in job 0.
+Applicant 8 is interested in job 3.
+Applicant 8 is interested in job 5.
+Applicant 8 is interested in job 6.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A:
+Acc: 138/300
+
+Namespace(model=0, mode='easy', prompt='none', T=0, token=400, SC=0, SC_num=5)

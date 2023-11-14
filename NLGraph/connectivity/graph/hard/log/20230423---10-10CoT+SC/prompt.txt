@@ -1,0 +1,30 @@
+Determine if there is a path between two nodes in the graph. Note that (i,j) means that node i and node j are connected with an undirected edge.
+Graph: (0,1) (1,2) (3,4) (4,5)
+Q: Is there a path between node 1 and node 4?
+A: Node 1 is in the connected block consisted of node 0, node 1, and node 2.
+Node 4 is in the connected block consisting of node 3, node 4, and node 5. Node 1 and node 4 are not in the same connected block, so the answer is no.
+
+Determine if there is a path between two nodes in the graph. Note that (i,j) means that node i and node j are connected with an undirected edge.
+Graph: (0,1) (0,2) (1,5) (1,2) (1,3) (2,5)
+Q: Is there a path between node 2 and node 3?
+A: Node 2 is connected to node 1, node 1 is connected to node 3. We can follow the path: 2->1->3, so the answer is yes.
+
+Determine if there is a path between two nodes in the graph. Note that (i,j) means that node i and node j are connected with an undirected edge.
+Graph: (0,2) (0,5) (0,6) (1,3) (1,4) (2,5) (2,6) (3,4) (5,6)
+Q: Is there a path between node 5 and node 4?
+A: Node 5 is in the connected block consisted of node 0, node 2, node 5, and node 2.
+Node 4 is in the connected block consisting of node 1, node 3, and node 4. Node 5 and node 4 are not in the same connected block, so the answer is no.
+
+Determine if there is a path between two nodes in the graph. Note that (i,j) means that node i and node j are connected with an undirected edge.
+Graph: (0,1) (0,7) (0,6) (1,7) (1,5) (1,6) (5,9) (2,8) (2,4) (2,3) (3,8)
+Q: Is there a path between node 7 and node 9?
+A: Node 7 is connected to node 1, node 1 is connected to node 5, node 5 is connected to node 9.
+We can follow the path: 7->1->5->9, so the answer is yes.
+
+
+Determine if there is a path between two nodes in the graph. Note that (i,j) means that node i and node j are connected with an undirected edge.
+Graph: (0,26) (0,10) (0,15) (0,21) (0,1) (0,7) (0,29) (0,24) (0,16) (0,23) (0,17) (1,26) (1,10) (1,15) (1,7) (1,28) (1,29) (1,12) (1,24) (1,16) (1,3) (1,23) (2,14) (2,27) (2,34) (3,26) (3,32) (3,15) (3,21) (3,7) (3,28) (3,29) (3,12) (3,24) (3,23) (3,17) (4,9) (4,14) (4,27) (4,31) (5,19) (5,22) (5,13) (5,20) (5,25) (5,30) (5,8) (5,33) (6,9) (6,27) (6,34) (6,31) (7,26) (7,32) (7,10) (7,15) (7,21) (7,29) (7,12) (7,24) (7,16) (7,23) (7,17) (8,19) (8,22) (8,13) (8,20) (8,25) (8,18) (8,30) (8,33) (9,14) (9,34) (10,32) (10,15) (10,21) (10,29) (10,24) (10,23) (10,17) (11,19) (11,22) (11,13) (11,25) (11,18) (11,30) (12,26) (12,32) (12,15) (12,21) (12,24) (12,16) (12,23) (13,19) (13,20) (13,25) (13,18) (13,33) (14,27) (14,31) (15,26) (15,21) (15,28) (15,24) (15,16) (15,23) (15,17) (16,26) (16,32) (16,23) (16,17) (17,26) (17,32) (17,21) (17,28) (17,24) (18,19) (18,22) (18,20) (18,30) (19,22) (19,20) (19,25) (19,30) (20,25) (20,30) (20,33) (21,26) (21,32) (21,28) (21,29) (22,25) (22,30) (22,33) (23,32) (23,28) (23,29) (23,24) (24,32) (24,28) (25,30) (25,33) (26,32) (26,28) (27,31) (28,29) (30,33)
+Q: Is there a path between node 31 and node 34?
+A:
+Acc: 563/680
+Namespace(model=0, mode='hard', prompt='CoT', T=0, token=256, SC=1, SC_num=5)

@@ -1,0 +1,34 @@
+Determine if there is a path between two nodes in the graph. The following are the undirected edges of the graph:
+an edge between node 0 and node 5
+an edge between node 0 and node 2
+an edge between node 0 and node 8
+an edge between node 0 and node 4
+an edge between node 0 and node 7
+an edge between node 0 and node 3
+an edge between node 0 and node 1
+an edge between node 1 and node 5
+an edge between node 1 and node 2
+an edge between node 1 and node 8
+an edge between node 1 and node 4
+an edge between node 1 and node 7
+an edge between node 1 and node 3
+an edge between node 2 and node 5
+an edge between node 2 and node 8
+an edge between node 2 and node 4
+an edge between node 2 and node 7
+an edge between node 2 and node 3
+an edge between node 3 and node 5
+an edge between node 3 and node 8
+an edge between node 3 and node 4
+an edge between node 3 and node 7
+an edge between node 4 and node 5
+an edge between node 4 and node 8
+an edge between node 4 and node 7
+an edge between node 5 and node 8
+an edge between node 5 and node 7
+an edge between node 6 and node 9
+an edge between node 7 and node 8
+Q: Is there a path between node 5 and node 8?
+A:
+Acc: 277/352
+Namespace(model=0, mode='easy', prompt='none', T=0, token=1, SC=0)

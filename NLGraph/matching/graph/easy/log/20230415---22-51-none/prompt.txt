@@ -1,0 +1,8 @@
+There are 4 job applicants numbered from 0 to 3, and 2 jobs numbered from 0 to 1. Each applicant is interested in some of the jobs. Each job can only accept one applicant and a job applicant can be appointed for only one job.
+Applicant 1 is interested in job 1.
+Applicant 2 is interested in job 1.
+Q: Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.
+A:
+Acc: 3/4
+
+Namespace(model=0, mode='easy', prompt='none', T=0, token=400, SC=0, SC_num=5)
