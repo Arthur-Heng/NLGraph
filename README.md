@@ -5,12 +5,18 @@ paper link: [https://arxiv.org/abs/2305.10037](https://arxiv.org/abs/2305.10037)
 Check out the NLGraph dataset! `main.json` in each task features an in-context learning setting, while `train.json` and `test.json` provide a supervised fine-tuning setting. The `graph` directory in each task contains the raw graph data (i.e. graph represented by numbers) divided into easy, (medium) and hard.
 
 ### Evaluation
+First set your openai key (and organization optionally):
 ```
-python evaluation/<task_name>.py --model <ID of LM> --mode <difficulty_mode> --prompt <prompting technique> --T <temperature> --token <max number of token> --SC <whether to use self-consistency> --SC_num <sampling number for SC>
+$env:OPENAI_API_KEY="your openai key" # for Windows powershell
+export OPENAI_API_KEY="your openai key" # for Linux
+```
+then run the evaluation code for a specific task:
+```
+python evaluation/<task_name>.py --model <name of LM> --mode <difficulty_mode> --prompt <prompting technique> --T <temperature> --token <max number of token> --SC <whether to use self-consistency> --SC_num <sampling number for SC>
 ```
 For instance,
 ```
-python evaluation/cycle.py --model 0 --mode easy --prompt CoT --SC 1 --SC_num 5
+python evaluation/cycle.py --model text-davinci-003 --mode easy --prompt CoT --SC 1 --SC_num 5
 ```
 evaluates `text-davinci-003` model on the easy subset of cycle task, using chain-of-thought prompting together with self-consistency.
 

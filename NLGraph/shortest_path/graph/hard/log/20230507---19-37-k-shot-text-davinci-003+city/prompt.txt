@@ -1,0 +1,98 @@
+In a country, the cities are numbered from 0 to 4. There are roads between the cities, and the roads are:
+a road between city 0 and city 1 with length 2,
+a road between city 1 and city 4 with length 1,
+a road between city 0 and city 2 with length 1,
+a road between city 2 and city 3 with length 1,
+a road between city 3 and city 4 with length 2.
+Q: Give the shortest path from city 0 to city 4.
+A: The shortest path from city 0 to city 4 is 0,1,4 with a total length of 3.
+
+In a country, the cities are numbered from 0 to 4. There are roads between the cities, and the roads are:
+a road between city 0 and city 3 with length 2,
+a road between city 0 and city 4 with length 1,
+a road between city 0 and city 2 with length 1,
+a road between city 4 and city 1 with length 2,
+a road between city 2 and city 1 with length 1,
+a road between city 3 and city 2 with length 4,
+a road between city 2 and city 4 with length 1,
+a road between city 3 and city 4 with length 2.
+Q: Give the shortest path from city 3 to city 1.
+A: The shortest path from city 3 to city 1 is 3,4,1 with a total length of 4.
+
+In a country, the cities are numbered from 0 to 5. There are roads between the cities, and the roads are:
+a road between city 0 and city 2 with length 2,
+a road between city 1 and city 0 with length 2,
+a road between city 5 and city 1 with length 1,
+a road between city 1 and city 2 with length 3,
+a road between city 3 and city 1 with length 2,
+a road between city 5 and city 4 with length 1.
+Q: Give the shortest path from city 4 to city 2.
+A: The shortest path from city 4 to city 2 is 4,5,1,2 with a total length of 5.
+
+In a country, the cities are numbered from 0 to 5. There are roads between the cities, and the roads are:
+a road between city 0 and city 1 with length 1,
+a road between city 2 and city 1 with length 4,
+a road between city 1 and city 5 with length 1,
+a road between city 3 and city 1 with length 1,
+a road between city 5 and city 2 with length 4,
+a road between city 2 and city 3 with length 1,
+a road between city 3 and city 6 with length 2,
+a road between city 4 and city 6 with length 1.
+Q: Give the shortest path from city 2 to city 0.
+A: The shortest path from city 2 to city 0 is 2,3,1,0 with a total length of 3.
+
+In a country, the cities are numbered from 0 to 6. There are roads between the cities, and the roads are:
+a road between city 0 and city 1 with length 1,
+a road between city 1 and city 2 with length 2,
+a road between city 0 and city 2 with length 4,
+a road between city 0 and city 4 with length 2,
+a road between city 2 and city 6 with length 2,
+a road between city 4 and city 6 with length 4,
+a road between city 4 and city 3 with length 5,
+a road between city 6 and city 5 with length 3,
+a road between city 3 and city 5 with length 4.
+Q: Give the shortest path from city 0 to city 5.
+A: The shortest path from city 0 to city 5 is 0,1,2,6,5 with a total length of 8.
+
+
+In a country, the cities are numbered from 0 to 19. There are roads between the cities, and the roads are:
+a road between city 0 and city 4 with length 7,
+a road between city 0 and city 11 with length 5,
+a road between city 1 and city 7 with length 2,
+a road between city 1 and city 15 with length 8,
+a road between city 1 and city 5 with length 6,
+a road between city 2 and city 19 with length 8,
+a road between city 2 and city 11 with length 9,
+a road between city 2 and city 9 with length 4,
+a road between city 3 and city 16 with length 1,
+a road between city 3 and city 15 with length 9,
+a road between city 3 and city 8 with length 6,
+a road between city 3 and city 13 with length 8,
+a road between city 3 and city 14 with length 8,
+a road between city 4 and city 5 with length 8,
+a road between city 5 and city 7 with length 5,
+a road between city 5 and city 15 with length 9,
+a road between city 6 and city 11 with length 8,
+a road between city 6 and city 8 with length 2,
+a road between city 6 and city 17 with length 6,
+a road between city 6 and city 13 with length 5,
+a road between city 7 and city 18 with length 3,
+a road between city 7 and city 19 with length 8,
+a road between city 7 and city 13 with length 4,
+a road between city 8 and city 12 with length 2,
+a road between city 8 and city 9 with length 1,
+a road between city 8 and city 14 with length 2,
+a road between city 9 and city 16 with length 6,
+a road between city 9 and city 11 with length 5,
+a road between city 10 and city 12 with length 8,
+a road between city 10 and city 13 with length 4,
+a road between city 10 and city 14 with length 3,
+a road between city 12 and city 17 with length 9,
+a road between city 15 and city 19 with length 2,
+a road between city 17 and city 18 with length 9.
+Q: Give the shortest path from city 12 to city 4.
+A:
+Acc: 41/200
+Acc2: 19/200
+
+Namespace(model=0, mode='hard', prompt='k-shot', T=0, token=400, SC=0, city=1, SC_num=5)

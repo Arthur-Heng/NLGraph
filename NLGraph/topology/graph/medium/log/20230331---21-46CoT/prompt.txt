@@ -1,0 +1,262 @@
+In a directed graph with n nodes numbered from 0 to 4:
+node 0 should be visited before node 4
+node 0 should be visited before node 1
+node 2 should be visited before node 1
+node 3 should be visited before node 2
+Q: Can all the nodes be visited? Give the solution.
+A: Since no nodes are required to be visited before node 0 and node 3, node 0 and node 3 can be visited first. After node 0 is visited,
+node 4 can be visited. After node 3 is visited, node 2 can be visited. After node 0 and node 2 are visited, node 1 can be visited. So the solution is: 0,3,2,4,1.
+
+In a directed graph with n nodes numbered from 0 to 4:
+node 0 should be visited before node 1
+node 1 should be visited before node 2
+node 3 should be visited before node 1
+node 3 should be visited before node 2
+node 4 should be visited before node 3
+node 4 should be visited before node 0
+node 4 should be visited before node 1
+Q: Can all the nodes be visited? Give the solution.
+A: Since no nodes are required to be visited before node 4, node 4 can be visited first. After node 4 is visited, node 0 and node 3 can be visited.
+After node 0, node 3, and node 4 are visited, node 1 can be visited. After node 1 and node 3 are visited, node 2 can be visited. So the solution is: 4,0,3,1,2.
+
+In a directed graph with n nodes numbered from 0 to 5:
+node 0 should be visited before node 3
+node 1 should be visited before node 2
+node 3 should be visited before node 2
+node 4 should be visited before node 1
+node 4 should be visited before node 2
+node 5 should be visited before node 1
+node 5 should be visited before node 2
+Q: Can all the nodes be visited? Give the solution.
+A: Since no nodes are required to be visited before node 0 node 4 and node 5, node 0 node 4 and node 5 can be visited first. After node 0 is visited, node 3 can be visited.
+After node 4 and node 5 are visited, node 1 can be visited. After node 1, node 3, node 4, and node 5 are visited, node 2 can be visited. So the solution is: 0,4,5,3,1,2.
+
+In a directed graph with n nodes numbered from 0 to 5:
+node 0 should be visited before node 5
+node 1 should be visited before node 2
+node 1 should be visited before node 0
+node 3 should be visited before node 0
+node 3 should be visited before node 5
+node 4 should be visited before node 3
+node 4 should be visited before node 2
+node 4 should be visited before node 0
+Q: Can all the nodes be visited? Give the solution.
+A: Since no nodes are required to be visited before node 1 and node 4, node 1 and node 4 can be visited first. After node 1 and node 4 are visited,
+node 2 can be visited. After node 4 is visited, node 3 can be visited. After node 1, node 3, and node 4 are visited, node 0 can be visited.
+After node 0 and node 3 are visited, node 5 can be visited. So the solution is: 1,4,2,3,0,5.
+
+In a directed graph with n nodes numbered from 0 to 6:
+node 0 should be visited before node 6
+node 2 should be visited before node 0
+node 2 should be visited before node 5
+node 4 should be visited before node 1
+node 4 should be visited before node 3
+node 6 should be visited before node 3
+node 6 should be visited before node 5
+Q: Can all the nodes be visited? Give the solution.
+A: Since no nodes are required to be visited before node 2 and node 4, node 2 and node 4 can be visited first. After node 2 is visited,
+node 0 can be visited. After node 4 is visited, node 1 can be visited. After node 0 is visited, node 6 can be visited.
+After node 2 and node 6 are visited, node 5 can be visited. After node 4 and node 6 are visited, node 3 can be visited. So the solution is: 2,4,0,1,6,5,3.
+
+In a directed graph with n nodes numbered from 0 to 24:
+node 0 should be visited before node 10
+node 0 should be visited before node 7
+node 0 should be visited before node 14
+node 0 should be visited before node 3
+node 0 should be visited before node 24
+node 0 should be visited before node 5
+node 0 should be visited before node 11
+node 0 should be visited before node 1
+node 0 should be visited before node 13
+node 2 should be visited before node 10
+node 2 should be visited before node 7
+node 2 should be visited before node 14
+node 2 should be visited before node 3
+node 2 should be visited before node 8
+node 2 should be visited before node 5
+node 2 should be visited before node 17
+node 2 should be visited before node 11
+node 2 should be visited before node 1
+node 2 should be visited before node 13
+node 3 should be visited before node 8
+node 3 should be visited before node 24
+node 3 should be visited before node 5
+node 3 should be visited before node 17
+node 3 should be visited before node 11
+node 3 should be visited before node 1
+node 3 should be visited before node 13
+node 4 should be visited before node 16
+node 4 should be visited before node 0
+node 4 should be visited before node 10
+node 4 should be visited before node 8
+node 4 should be visited before node 24
+node 4 should be visited before node 5
+node 4 should be visited before node 17
+node 4 should be visited before node 11
+node 4 should be visited before node 1
+node 4 should be visited before node 13
+node 4 should be visited before node 12
+node 5 should be visited before node 17
+node 5 should be visited before node 11
+node 5 should be visited before node 1
+node 5 should be visited before node 13
+node 5 should be visited before node 12
+node 6 should be visited before node 18
+node 6 should be visited before node 22
+node 6 should be visited before node 19
+node 6 should be visited before node 0
+node 6 should be visited before node 20
+node 6 should be visited before node 2
+node 6 should be visited before node 10
+node 6 should be visited before node 7
+node 6 should be visited before node 3
+node 6 should be visited before node 24
+node 6 should be visited before node 5
+node 6 should be visited before node 17
+node 6 should be visited before node 1
+node 6 should be visited before node 13
+node 6 should be visited before node 12
+node 7 should be visited before node 3
+node 7 should be visited before node 8
+node 7 should be visited before node 24
+node 7 should be visited before node 5
+node 7 should be visited before node 17
+node 7 should be visited before node 11
+node 7 should be visited before node 1
+node 7 should be visited before node 13
+node 8 should be visited before node 24
+node 8 should be visited before node 5
+node 8 should be visited before node 1
+node 8 should be visited before node 13
+node 9 should be visited before node 6
+node 9 should be visited before node 18
+node 9 should be visited before node 22
+node 9 should be visited before node 4
+node 9 should be visited before node 19
+node 9 should be visited before node 16
+node 9 should be visited before node 20
+node 9 should be visited before node 2
+node 9 should be visited before node 7
+node 9 should be visited before node 14
+node 9 should be visited before node 3
+node 9 should be visited before node 24
+node 9 should be visited before node 5
+node 9 should be visited before node 11
+node 9 should be visited before node 13
+node 9 should be visited before node 12
+node 10 should be visited before node 7
+node 10 should be visited before node 3
+node 10 should be visited before node 8
+node 10 should be visited before node 24
+node 10 should be visited before node 5
+node 10 should be visited before node 17
+node 10 should be visited before node 1
+node 10 should be visited before node 13
+node 10 should be visited before node 12
+node 11 should be visited before node 1
+node 11 should be visited before node 13
+node 11 should be visited before node 12
+node 13 should be visited before node 12
+node 14 should be visited before node 24
+node 14 should be visited before node 17
+node 14 should be visited before node 11
+node 14 should be visited before node 12
+node 15 should be visited before node 19
+node 15 should be visited before node 16
+node 15 should be visited before node 2
+node 15 should be visited before node 10
+node 15 should be visited before node 3
+node 15 should be visited before node 24
+node 15 should be visited before node 5
+node 15 should be visited before node 17
+node 15 should be visited before node 13
+node 15 should be visited before node 12
+node 16 should be visited before node 0
+node 16 should be visited before node 2
+node 16 should be visited before node 10
+node 16 should be visited before node 14
+node 16 should be visited before node 24
+node 16 should be visited before node 5
+node 16 should be visited before node 17
+node 16 should be visited before node 11
+node 16 should be visited before node 1
+node 16 should be visited before node 12
+node 17 should be visited before node 1
+node 17 should be visited before node 13
+node 18 should be visited before node 21
+node 18 should be visited before node 22
+node 18 should be visited before node 15
+node 18 should be visited before node 19
+node 18 should be visited before node 0
+node 18 should be visited before node 10
+node 18 should be visited before node 14
+node 18 should be visited before node 3
+node 18 should be visited before node 5
+node 18 should be visited before node 13
+node 19 should be visited before node 16
+node 19 should be visited before node 0
+node 19 should be visited before node 20
+node 19 should be visited before node 2
+node 19 should be visited before node 10
+node 19 should be visited before node 7
+node 19 should be visited before node 14
+node 19 should be visited before node 3
+node 19 should be visited before node 8
+node 19 should be visited before node 24
+node 19 should be visited before node 5
+node 19 should be visited before node 11
+node 19 should be visited before node 1
+node 19 should be visited before node 12
+node 20 should be visited before node 2
+node 20 should be visited before node 7
+node 20 should be visited before node 14
+node 20 should be visited before node 3
+node 20 should be visited before node 5
+node 20 should be visited before node 17
+node 20 should be visited before node 11
+node 20 should be visited before node 13
+node 21 should be visited before node 22
+node 21 should be visited before node 16
+node 21 should be visited before node 2
+node 21 should be visited before node 14
+node 21 should be visited before node 8
+node 21 should be visited before node 24
+node 21 should be visited before node 5
+node 21 should be visited before node 17
+node 21 should be visited before node 11
+node 21 should be visited before node 13
+node 22 should be visited before node 19
+node 22 should be visited before node 0
+node 22 should be visited before node 2
+node 22 should be visited before node 10
+node 22 should be visited before node 7
+node 22 should be visited before node 14
+node 22 should be visited before node 3
+node 22 should be visited before node 8
+node 22 should be visited before node 24
+node 22 should be visited before node 1
+node 22 should be visited before node 13
+node 23 should be visited before node 9
+node 23 should be visited before node 18
+node 23 should be visited before node 21
+node 23 should be visited before node 22
+node 23 should be visited before node 4
+node 23 should be visited before node 19
+node 23 should be visited before node 16
+node 23 should be visited before node 0
+node 23 should be visited before node 20
+node 23 should be visited before node 2
+node 23 should be visited before node 7
+node 23 should be visited before node 3
+node 23 should be visited before node 24
+node 23 should be visited before node 5
+node 23 should be visited before node 1
+node 23 should be visited before node 13
+node 23 should be visited before node 12
+node 24 should be visited before node 5
+node 24 should be visited before node 1
+node 24 should be visited before node 13
+Q: Can all the nodes be visited? Give the solution.
+A:
+Acc: 22/450
+Namespace(model=0, mode='medium', prompt='CoT', T=0, token=400, SC=0)

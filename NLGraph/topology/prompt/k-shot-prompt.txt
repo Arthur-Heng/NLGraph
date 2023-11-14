@@ -1,0 +1,52 @@
+In a directed graph with n nodes numbered from 0 to 4:
+node 0 should be visited before node 4
+node 0 should be visited before node 1
+node 2 should be visited before node 1
+node 3 should be visited before node 2
+Q: Can all the nodes be visited? Give the solution.
+A: The solution is: 0,3,2,4,1.
+
+In a directed graph with n nodes numbered from 0 to 4:
+node 0 should be visited before node 1
+node 1 should be visited before node 2
+node 3 should be visited before node 1
+node 3 should be visited before node 2
+node 4 should be visited before node 3
+node 4 should be visited before node 0
+node 4 should be visited before node 1
+Q: Can all the nodes be visited? Give the solution.
+A: The solution is: 4,0,3,1,2.
+
+In a directed graph with n nodes numbered from 0 to 5:
+node 0 should be visited before node 3
+node 1 should be visited before node 2
+node 3 should be visited before node 2
+node 4 should be visited before node 1
+node 4 should be visited before node 2
+node 5 should be visited before node 1
+node 5 should be visited before node 2
+Q: Can all the nodes be visited? Give the solution.
+A: The solution is: 0,4,5,3,1,2.
+
+In a directed graph with n nodes numbered from 0 to 5:
+node 0 should be visited before node 5
+node 1 should be visited before node 2
+node 1 should be visited before node 0
+node 3 should be visited before node 0
+node 3 should be visited before node 5
+node 4 should be visited before node 3
+node 4 should be visited before node 2
+node 4 should be visited before node 0
+Q: Can all the nodes be visited? Give the solution.
+A: The solution is: 1,4,2,3,0,5.
+
+In a directed graph with n nodes numbered from 0 to 6:
+node 0 should be visited before node 6
+node 2 should be visited before node 0
+node 2 should be visited before node 5
+node 4 should be visited before node 1
+node 4 should be visited before node 3
+node 6 should be visited before node 3
+node 6 should be visited before node 5
+Q: Can all the nodes be visited? Give the solution.
+A: The solution is: 2,4,0,1,6,5,3.

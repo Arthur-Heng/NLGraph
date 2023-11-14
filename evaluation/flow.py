@@ -12,9 +12,9 @@ from tenacity import (
     wait_random_exponential,
 )  # for exponential backoff
 
-model_list = ["text-davinci-003","code-davinci-002"]
+model_list = ["text-davinci-003","code-davinci-002","gpt-3.5-turbo","gpt-4"]
 parser = argparse.ArgumentParser(description="maximum flow")
-parser.add_argument('--model', type=int, default=0, help='index of the chosen model (default: 0)')
+parser.add_argument('--model', type=str, default="text-davinci-003", help='name of LM (default: text-davinci-003)')
 parser.add_argument('--mode', type=str, default="easy", help='mode (default: easy)')
 parser.add_argument('--prompt', type=str, default="none", help='prompting techniques (default: none)')
 parser.add_argument('--T', type=int, default=0, help='temprature (default: 0)')
@@ -29,7 +29,7 @@ def translate(G, q, args):
     n, m = G.number_of_nodes(), G.number_of_edges()
     Q = ''
     if args.prompt in ["CoT", "k-shot"]:
-        with open("./prompt/" + args.prompt + "-prompt.txt", "r") as f:
+        with open("NLGraph/flow/prompt/" + args.prompt + "-prompt.txt", "r") as f:
             exemplar = f.read()
         Q = Q + exemplar + "\n\n\n"
     Q = Q + "In a directed graph, the nodes are numbered from 0 to " + str(n-1)+", and the edges are:\n"
@@ -57,8 +57,22 @@ def predict(Q, args):
     temperature = 0
     if args.SC == 1:
         temperature = 0.7
+    if 'gpt' in args.model:
+        Answer_list = []
+        for text in input:
+            response = openai.ChatCompletion.create(
+            model=args.model,
+            messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": text},
+            ],
+            temperature=temperature,
+            max_tokens=args.token,
+            )
+            Answer_list.append(response["choices"][0]["message"]["content"])
+        return Answer_list
     response = openai.Completion.create(
-    model=model_list[args.model],
+    model=args.model,
     prompt=input,
     temperature=temperature,
     max_tokens=args.token,
@@ -72,7 +86,7 @@ def log(Q, res1, res2, answer, args):
     utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
     bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
     time = bj_dt.now().strftime("%Y%m%d---%H-%M")
-    newpath = '../log/flow/'+args.mode+'-'+time+ '-' + args.prompt
+    newpath = 'log/flow/'+args.model+'-'+args.mode+'-'+time+ '-' + args.prompt
     if args.SC == 1:
         newpath = newpath + "+SC"
     if not os.path.exists(newpath):
@@ -109,12 +123,12 @@ def evaluate(ans, G, q, std):
     return flag1, flag2
 
 def main():
-    if 'openai_key' in os.environ:
-        openai.api_key = os.environ['openai_key']
+    if 'OPENAI_API_KEY' in os.environ:
+        openai.api_key = os.environ['OPENAI_API_KEY']
     else:
         raise Exception("Missing openai key!")
-    if 'openai_organization' in os.environ:
-        openai.organization = os.environ['openai_organization']
+    if 'OPENAI_ORGANIZATION' in os.environ:
+        openai.organization = os.environ['OPENAI_ORGANIZATION']
 
     res1,  res2, answer = [], [], []
     match args.mode:
@@ -127,7 +141,7 @@ def main():
     for i in tqdm(range((g_num + batch_num - 1) // batch_num)):
         G_list, Q_list, q_list, std_list = [], [], [], []
         for j in range(i*batch_num, min(g_num, (i+1)*batch_num)):
-            with open("../NLgraph/flow/graph/"+args.mode+"/standard/graph"+str(j)+".txt","r") as f:
+            with open("NLgraph/flow/graph/"+args.mode+"/standard/graph"+str(j)+".txt","r") as f:
                 n, m = [int(x) for x in next(f).split()]
                 array = []
                 for line in f: # read rest of lines

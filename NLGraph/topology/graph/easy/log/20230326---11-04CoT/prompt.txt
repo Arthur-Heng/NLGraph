@@ -1,0 +1,51 @@
+In a directed graph with n nodes numbered from 0 to 4:
+node 0 should be visited before node 1
+node 1 should be visited before node 2
+node 3 should be visited before node 1
+node 3 should be visited before node 2
+node 4 should be visited before node 3
+node 4 should be visited before node 0
+node 4 should be visited before node 1
+Q: Can all the nodes be visited? Give the solution.
+A: Since no nodes are required to be visited before node 4, node 4 can be visited first. After node 4 is visited, node 0 and node 3 can be visited.
+After node 0, node 3, and node 4 are visited, node 1 can be visited. After node 1 and node 3 are visited, node 2 can be visited. So the solution is: 4,0,3,1,2.
+In a directed graph with n nodes numbered from 0 to 9:
+node 0 should be visited before node 5
+node 0 should be visited before node 2
+node 0 should be visited before node 8
+node 0 should be visited before node 6
+node 0 should be visited before node 9
+node 0 should be visited before node 1
+node 0 should be visited before node 7
+node 2 should be visited before node 8
+node 2 should be visited before node 6
+node 2 should be visited before node 9
+node 2 should be visited before node 1
+node 3 should be visited before node 4
+node 3 should be visited before node 2
+node 3 should be visited before node 8
+node 3 should be visited before node 6
+node 3 should be visited before node 9
+node 3 should be visited before node 1
+node 3 should be visited before node 7
+node 4 should be visited before node 0
+node 4 should be visited before node 2
+node 4 should be visited before node 8
+node 4 should be visited before node 6
+node 4 should be visited before node 9
+node 4 should be visited before node 1
+node 4 should be visited before node 7
+node 5 should be visited before node 9
+node 5 should be visited before node 1
+node 5 should be visited before node 7
+node 6 should be visited before node 7
+node 8 should be visited before node 6
+node 8 should be visited before node 9
+node 8 should be visited before node 1
+node 8 should be visited before node 7
+node 9 should be visited before node 1
+node 9 should be visited before node 7
+Q: Can all the nodes be visited? Give the solution.
+A:
+Acc: 80/180
+Namespace(model=0, mode='easy', prompt='CoT', T=0, token=400, SC=0)

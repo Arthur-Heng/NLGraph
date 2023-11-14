@@ -1,0 +1,42 @@
+In a country, the cities are numbered from 0 to 9. There are roads between the cities, and the roads are:
+A road between city 0 and city 1 with length 1,
+A road between city 0 and city 4 with length 2,
+A road between city 0 and city 8 with length 1,
+A road between city 0 and city 9 with length 4,
+A road between city 1 and city 7 with length 4,
+A road between city 1 and city 3 with length 4,
+A road between city 1 and city 6 with length 1,
+A road between city 1 and city 2 with length 1,
+A road between city 1 and city 4 with length 3,
+A road between city 1 and city 8 with length 1,
+A road between city 1 and city 9 with length 2,
+A road between city 2 and city 7 with length 1,
+A road between city 2 and city 5 with length 4,
+A road between city 2 and city 3 with length 4,
+A road between city 2 and city 4 with length 1,
+A road between city 2 and city 8 with length 1,
+A road between city 2 and city 9 with length 2,
+A road between city 3 and city 7 with length 3,
+A road between city 3 and city 5 with length 2,
+A road between city 3 and city 6 with length 3,
+A road between city 3 and city 8 with length 2,
+A road between city 3 and city 9 with length 1,
+A road between city 4 and city 7 with length 3,
+A road between city 4 and city 5 with length 4,
+A road between city 4 and city 8 with length 4,
+A road between city 4 and city 9 with length 1,
+A road between city 5 and city 6 with length 3,
+A road between city 5 and city 8 with length 4,
+A road between city 5 and city 9 with length 3,
+A road between city 6 and city 7 with length 2,
+A road between city 6 and city 8 with length 4,
+A road between city 6 and city 9 with length 1,
+A road between city 7 and city 8 with length 3,
+A road between city 7 and city 9 with length 2,
+A road between city 8 and city 9 with length 4.
+Q: Give the shortest path from city 7 to city 5.
+A:
+Acc: 53/180
+Acc2: 52/180
+
+Namespace(model=0, mode='easy', prompt='none', T=0, token=400, SC=0, city=1, SC_num=5)

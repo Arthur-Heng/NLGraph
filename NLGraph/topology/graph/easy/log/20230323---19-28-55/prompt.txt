@@ -1,0 +1,38 @@
+In a directed graph:
+node 4 should be visited before node 9
+node 3 should be visited before node 6
+node 6 should be visited before node 7
+node 0 should be visited before node 2
+node 4 should be visited before node 6
+node 1 should be visited before node 5
+node 2 should be visited before node 6
+node 5 should be visited before node 6
+node 4 should be visited before node 5
+node 0 should be visited before node 9
+node 1 should be visited before node 6
+node 1 should be visited before node 7
+node 3 should be visited before node 4
+node 2 should be visited before node 9
+node 1 should be visited before node 4
+node 0 should be visited before node 4
+node 0 should be visited before node 7
+node 2 should be visited before node 7
+node 1 should be visited before node 3
+node 2 should be visited before node 3
+node 6 should be visited before node 8
+node 0 should be visited before node 3
+node 0 should be visited before node 6
+node 3 should be visited before node 7
+node 4 should be visited before node 7
+node 4 should be visited before node 8
+node 0 should be visited before node 8
+node 6 should be visited before node 9
+node 7 should be visited before node 8
+node 5 should be visited before node 8
+node 5 should be visited before node 7
+node 8 should be visited before node 9
+node 5 should be visited before node 9
+Q: Can all the nodes be visited? Give the solution.
+A:
+Acc: 146/180
+Namespace(model=0, mode='easy', prompt='none', T=0, token=256, SC=0)

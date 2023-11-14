@@ -1,0 +1,42 @@
+In an undirected graph, the nodes are numbered from 0 to 9, and the edges are:
+An edge between node 0 and node 1 with weight 1
+An edge between node 0 and node 4 with weight 2
+An edge between node 0 and node 8 with weight 1
+An edge between node 0 and node 9 with weight 4
+An edge between node 1 and node 7 with weight 4
+An edge between node 1 and node 3 with weight 4
+An edge between node 1 and node 6 with weight 1
+An edge between node 1 and node 2 with weight 1
+An edge between node 1 and node 4 with weight 3
+An edge between node 1 and node 8 with weight 1
+An edge between node 1 and node 9 with weight 2
+An edge between node 2 and node 7 with weight 1
+An edge between node 2 and node 5 with weight 4
+An edge between node 2 and node 3 with weight 4
+An edge between node 2 and node 4 with weight 1
+An edge between node 2 and node 8 with weight 1
+An edge between node 2 and node 9 with weight 2
+An edge between node 3 and node 7 with weight 3
+An edge between node 3 and node 5 with weight 2
+An edge between node 3 and node 6 with weight 3
+An edge between node 3 and node 8 with weight 2
+An edge between node 3 and node 9 with weight 1
+An edge between node 4 and node 7 with weight 3
+An edge between node 4 and node 5 with weight 4
+An edge between node 4 and node 8 with weight 4
+An edge between node 4 and node 9 with weight 1
+An edge between node 5 and node 6 with weight 3
+An edge between node 5 and node 8 with weight 4
+An edge between node 5 and node 9 with weight 3
+An edge between node 6 and node 7 with weight 2
+An edge between node 6 and node 8 with weight 4
+An edge between node 6 and node 9 with weight 1
+An edge between node 7 and node 8 with weight 3
+An edge between node 7 and node 9 with weight 2
+An edge between node 8 and node 9 with weight 4
+Q: Give the shortest path from node 7 to node 5.
+A:
+Acc: 49/180
+Acc2: 49/180
+
+Namespace(model=0, mode='easy', prompt='none', T=0, token=400, SC=0, SC_num=5)
