@@ -14,6 +14,7 @@ python evaluation/cycle.py --model 0 --mode easy --prompt CoT --SC 1 --SC_num 5
 ```
 evaluates `text-davinci-003` model on the easy subset of cycle task, using chain-of-thought prompting together with self-consistency.
 
+More complete repo coming soon...
 ### Citation
 If you find this repo useful, please cite our paper:
 ```
