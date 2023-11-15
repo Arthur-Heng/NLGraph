@@ -5,7 +5,10 @@ paper link: [https://arxiv.org/abs/2305.10037](https://arxiv.org/abs/2305.10037)
 Check out the NLGraph dataset! `main.json` in each task features an in-context learning setting, while `train.json` and `test.json` provide a supervised fine-tuning setting. The `graph` directory in each task contains the raw graph data (i.e. graph represented by numbers) divided into easy, (medium) and hard.
 
 ### Evaluation
-First set your openai key (and organization optionally):
+
+**Environment:** `conda env create -f environment.yml` would generate a conda environment called `NLGraph` that should be able to run the code.
+
+First set your openai key `OEPNAI_API_KEY` (and openai organization `OPENAI_ORGANIZATION` optionally):
 ```
 $env:OPENAI_API_KEY="your openai key" # for Windows powershell
 export OPENAI_API_KEY="your openai key" # for Linux
