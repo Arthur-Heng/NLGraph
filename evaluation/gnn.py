@@ -151,11 +151,25 @@ def main():
                 array = []
                 for line in f: # read rest of lines
                     array.append([int(x) for x in line.split()])
-                edge, embedding, embedding1, std = array[:m], array[m:m+n], array[m+n:m+2*n], array[m+2*n:]
+                edge, embedding = array[:m], array[m:m+n]
                 G = nx.Graph()
                 G.add_nodes_from(range(n))
                 for k in range(m):
                     G.add_edge(int(edge[k][0]), int(edge[k][1]))
+                num = n
+                embedding_dim = 2
+                std = np.zeros((num, embedding_dim))
+                embedding1 = np.zeros((num, embedding_dim))
+                for i in range(G.number_of_nodes()):
+                    cnt_v = np.zeros(embedding_dim)
+                    for jj in G[i]:
+                        cnt_v += embedding[jj]
+                    embedding1[i] = cnt_v
+                for i in range(G.number_of_nodes()):
+                    cnt_v = np.zeros(embedding_dim)
+                    for jj in G[i]:
+                        cnt_v += embedding1[jj]
+                    std[i] = cnt_v
                 Q = translate(G, embedding, args)
                 Q_list.append(Q)
                 G_list.append(G)
