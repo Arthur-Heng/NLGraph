@@ -36,13 +36,13 @@ system_prompt = """
 请直接输出你推断出的<商业关系>，不要输出其他内容。
 """
 user_content_list = []
-with open("/Users/alex/Projects/NLGraph/NLGraph/BGP/type1_input.json", "r") as f:
+with open("/Users/alex/Projects/NLGraph/NLGraph/BGP/type1_output.json", "r") as f:
     user_content_list = json.load(f)
 
 output_list = []
 for user_content in tqdm(user_content_list):
     llama3_chat_completion = client.chat.completions.create(
-        model= "llama3-70b-8192",
+        model= "llama3-8b-8192",
         messages=[
         {
             "role": "system",
@@ -53,7 +53,7 @@ for user_content in tqdm(user_content_list):
             "content": user_content['question'],
         }],)
     openai_chat_completion = openai_client.chat.completions.create(
-        model="gpt-4-turbo",
+        model="gpt-4o",
         messages=[
             {
             "role": "system",
@@ -66,13 +66,15 @@ for user_content in tqdm(user_content_list):
     ],)
     llama3_output=llama3_chat_completion.choices[0].message.content
     gpt4_output=openai_chat_completion.choices[0].message.content
-    output_item = {
-        "question": user_content['question'], 
-        "llam3-70b-answer": llama3_output, 
-        "gpt-4-turbo-answer": gpt4_output
-    }
-    print(output_item)
-    output_list.append(output_item)
+    user_content["llama3-8b-answer"] = llama3_output
+    user_content["gpt-4o-answer"] = gpt4_output
+    # output_item = {
+    #     "question": user_content['question'], 
+    #     "llam3-70b-answer": llama3_output, 
+    #     "gpt-4-turbo-answer": gpt4_output
+    # }
+    print(user_content)
+    output_list.append(user_content)
 
-with open("/Users/alex/Projects/NLGraph/NLGraph/BGP/type1_output.json", "w", encoding='utf-8') as f:
+with open("/Users/alex/Projects/NLGraph/NLGraph/BGP/type1_output_plus.json", "w", encoding='utf-8') as f:
     json.dump(output_list, f, ensure_ascii=False, indent=4)
