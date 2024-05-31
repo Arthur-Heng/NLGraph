@@ -1,0 +1,27 @@
+[
+    {
+        "question": "已知路径 1239 3356 9002 6846， 传输度为989 3276 2318 33，clique成员为1239 3356，VP为1239 3356 9002，则推断它们的关系为？",
+        "llam3-70b-answer": "根据规则2，1239和3356是clique成员，9002是VP，则可以推断3356>9002。\n\n根据规则1，sort by degree，我们可以看到1239度最高，所以可以推断1239>3356。\n\n因此，推断出的商业关系为：1239>3356>9002>6846 → customer-provider",
+        "gpt-4-turbo-answer": "customer-provider"
+    },
+    {
+        "question": "已知路径 3356 1239 721， 传输度为3286 989 6，clique成员为1239 3356，VP为1239 3356，则推断它们的关系为？",
+        "llam3-70b-answer": "根据规则1，按照传输度排序，排列顺序为：3286>989>6。由于1239和3356是clique成员，且1239的传输度高于6，所以推断1239>721。\n\n因此，商业关系是：customer-provider。",
+        "gpt-4-turbo-answer": "customer-provider"
+    },
+    {
+        "question": "已知15169为部分VP，36040为stub AS，存在路径15169 6432 36040，则推断它们的关系为？",
+        "llam3-70b-answer": "根据规则2，15169是部分VP，36040是stub，则推断6432>36040。\n\n因为路径中15169在6432之前，所以推断15169>6432。\n\n由此，我们可以推断出15169>6432>36040。\n\n所以，15169和6432之间的商业关系是provider-customer，6432和36040之间的商业关系是provider-customer。\n\n因此，15169和36040之间的商业关系是provider-customer。",
+        "gpt-4-turbo-answer": "customer-provider"
+    },
+    {
+        "question": "已知存在路径1239 721 27065，且1239>721，传输度721<27065, 但存在路径以721 27065结尾，则推断它们的关系为？",
+        "llam3-70b-answer": "根据规则3，存在W>X?Y, 如果Y>X且存在W X Y结尾的路径，则推断W>X>Y。\n\n在这里，W=1239, X=721, Y=27065。\n\n因此，推断出的商业关系为：721>27065",
+        "gpt-4-turbo-answer": "customer-provider"
+    },
+    {
+        "question": "已知1239为clique成员，13395为stub AS，存在 1239 13395的AS路径，则他们的关系为？",
+        "llam3-70b-answer": "根据规则5，X Y，如果X为clique，而Y为stub，则X>Y。因此，1239>13395。他们的关系为customer-provider。",
+        "gpt-4-turbo-answer": "customer-provider"
+    }
+]

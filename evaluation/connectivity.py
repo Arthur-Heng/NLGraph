@@ -103,7 +103,7 @@ def log(Q_list, res, answer, args):
     
 def main():
     if 'OPENAI_API_KEY' in os.environ:
-        openai.api_key = os.environ['OPENAI_KEY']
+        openai.api_key = os.environ['OPENAI_API_KEY']
     else:
         raise Exception("Missing openai key!")
     if 'OPENAI_ORGANIZATION' in os.environ:
