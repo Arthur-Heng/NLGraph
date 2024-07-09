@@ -1,0 +1,37 @@
+[
+    {
+        "question": "已知路径 1239 3356 9002 6846， 传输度为989 3276 2318 33，clique成员为1239 3356，VP为1239 3356 9002，则推断它们的关系为？",
+        "llam3-70b-answer": "根据规则1，按照传输度排序，都是高到低的顺序：989 3276 2318 33\n\n由于1239 3356是clique成员，所以跳过它们\n\n剩下的关系是9002 6846，可以根据规则2判断，因为9002是VP，6846是stub，所以推断9002 > 6846\n\n所以，推断出的商业关系是：\ncustomer-provider",
+        "gpt-4-turbo-answer": "customer-provider",
+        "llama3-8b-answer": "c2p",
+        "gpt-4o-answer": "c2p"
+    },
+    {
+        "question": "已知路径 3356 1239 721， 传输度为3286 989 6，clique成员为1239 3356，VP为1239 3356，则推断它们的关系为？",
+        "llam3-70b-answer": "根据规则1：按照传输度排序，除了clique内容，如果存在X>Y?Z或者X-Y?Z，则推断X>Y， 注意 此时X的传输度需要高于Z\n\n在这里，我们可以得出：3286 > 989 > 6\n\n因此，推断出的商业关系为：1239 > 3356\n\n输出：customer-provider",
+        "gpt-4-turbo-answer": "p2p",
+        "llama3-8b-answer": "c2p",
+        "gpt-4o-answer": "c2p"
+    },
+    {
+        "question": "已知15169为部分VP，36040为stub AS，存在路径15169 6432 36040，则推断它们的关系为？",
+        "llam3-70b-answer": "15169 > 6432 > 36040",
+        "gpt-4-turbo-answer": "customer-provider",
+        "llama3-8b-answer": "c2p",
+        "gpt-4o-answer": "c2p"
+    },
+    {
+        "question": "已知存在路径1239 721 27065，且1239>721，传输度721<27065, 但存在路径以721 27065结尾，则推断它们的关系为？",
+        "llam3-70b-answer": "根据规则3，如果存在W>X?Y,如果Y>X且存在W X Y结尾的路径，则推断W>X>Y。在这个例子中，W=1239, X=721, Y=27065。因此，推断出的关系为：1239>721>27065。\n\n即，721是1239的客户，27065是721的客户。输出：\n\ncustomer-provider",
+        "gpt-4-turbo-answer": "p2p",
+        "llama3-8b-answer": "c2p",
+        "gpt-4o-answer": "c2p"
+    },
+    {
+        "question": "已知1239为clique成员，13395为stub AS，存在 1239 13395的AS路径，则他们的关系为？",
+        "llam3-70b-answer": "根据规则5，1239为clique成员，13395为stub，则推断1239 > 13395。\n\n输出：customer-provider",
+        "gpt-4-turbo-answer": "customer-provider",
+        "llama3-8b-answer": "p2p",
+        "gpt-4o-answer": "c2p"
+    }
+]
