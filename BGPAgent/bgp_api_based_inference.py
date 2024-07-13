@@ -3,6 +3,7 @@ import json
 from tqdm import tqdm
 from groq import Groq
 from openai import OpenAI
+import re
 openai_client = OpenAI(
     api_key=os.environ.get("AI_HUB_MIX_API_KEY"),
     base_url="https://aihubmix.com/v1"
@@ -53,17 +54,14 @@ system_prompt_rule = """
 """
 
 zero_shot_system_prompt = f"""
-You are a BGP (Border Gateway Protocol) business relationship expert. Please determine the BGP business relationships between Autonomous Systems (AS) based on the following information and identify any potential route leakage:
+You are a BGP (Border Gateway Protocol) business relationship expert. Please determine the BGP business relationships between AS(Autonomous Systems) based on the following information:
 
 Input: <AS Path>, additional information (such as <clique>, <transit degree>, etc.)
 
-<Business Relationship>: Please infer the business relationships between AS node pairs in the <AS Path>. The types of business relationships are p2c (provider-to-customer) and p2p (peer-to-peer).
+<Business Relationship>: Please infer the business relationship between AS node pairs in the <AS Path>. The types of business relationships are p2c(provider-to-customer) and p2p(peer-to-peer).
 
-You need to:
-
-Output the business relationships between each AS pair in the following format:
-output_format: ASN1-ASN2: <Business Relationship>, after analyzing every AS pair in the <AS Path>, 
-you must return the results as a list in the form like["ASN1-ASN2: ", "ASN3-ASN4: ", ...]
+You need to output the business relationship between each AS pair in the following format:
+output_format: ASN1-ASN2: <Business Relationship>, after analyzing every AS pair in the <AS Path>, you must return the results as a list which looks like["ASN1-ASN2: ", "ASN3-ASN4: ", ...]
 """
 
 
@@ -138,6 +136,7 @@ for user_content in tqdm(user_content_list):
         messages=messages,
         temperature=0.0,
     )
+    pattern = re.compile(r'\[.*?\]', re.DOTALL)
     llama3_70b_output = llama3_70b_chat_completion.choices[0].message.content
     # llama3_8b_output=llama3_8b_chat_completion.choices[0].message.content
     # mistral_8_7b_output=mistral_8_7b_chat_completion.choices[0].message.content
@@ -146,16 +145,22 @@ for user_content in tqdm(user_content_list):
     gpt4_turbo_output = openai_turbo_chat_completion.choices[0].message.content
     claude3__5_output = claude_chat_completion.choices[0].message.content
     user_content["llama3-70b-answer"] = llama3_70b_output
+    user_content["llama3-70b-answer-list"] = pattern.findall(llama3_70b_output)
     # user_content["mistral-8-7b-answer"] = mistral_8_7b_output
     # user_content["llama3-8b-answer"] = llama3_8b_output
     # user_content["gemma-7b-answer"] = gemma_7b_output
     user_content["gpt-4o-answer"] = gpt4_output
+    user_content["gpt-4o-answer-list"] = pattern.findall(gpt4_output)
     user_content["gpt-4-turbo-answer"] = gpt4_turbo_output
-    user_content["claude-3-5-sonnet-20240620"] = claude3__5_output
-    print(user_content)
+    user_content["gpt-4-turbo-answer-list"] = pattern.findall(
+        gpt4_turbo_output)
+    user_content["claude-3-5-sonnet-20240620-answer"] = claude3__5_output
+    user_content["claude-3-5-sonnet-20240620-answer-list"] = pattern.findall(
+        claude3__5_output)
+    # print(user_content)
     output_list.append(user_content)
     with open("/home/yyc/NLGraph/BGPAgent/program_data/cache/cache.json", "w", encoding='utf-8') as f:
         json.dump(output_list, f, ensure_ascii=False, indent=4)
 
-with open("/home/yyc/NLGraph/BGPAgent/program_data/type1_output_0713_zero_shot_temperation=0.json", "w", encoding='utf-8') as f:
+with open("/home/yyc/NLGraph/BGPAgent/program_data/type1_english_output_0713_zero_shot_temperation=0.json", "w", encoding='utf-8') as f:
     json.dump(output_list, f, ensure_ascii=False, indent=4)

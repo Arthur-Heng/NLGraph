@@ -1,0 +1,26 @@
+[
+    {
+        "question": "Given the path 701 1239 2914 3356, transmission degree 1098 2387 4568 778, clique members 701 1239, VP as 701 1239 2914, what can be inferred about their relationship?"
+    },
+    {
+        "question": "Given 174 as part of VP, 5617 as a stub AS, and the path 174 1299 5617, what can be inferred about their relationship?"
+    },
+    {
+        "question": "Given the path 2914 6453 3257, and 2914 > 6453, transmission degree 6453 < 3257, but there exists a path ending with 6453 3257, what can be inferred about their relationship?"
+    },
+    {
+        "question": "Given 3356 as a clique member, 2905 as a stub AS, and the existence of the AS path 3356 2905, what can be inferred about their relationship?"
+    },
+    {
+        "question": "Given the path 7018 2828 1239 701, transmission degree 876 2938 1987 562, clique members 7018 2828, VP as 7018 2828 1239, what can be inferred about their relationship?"
+    },
+    {
+        "question": "Given 701 as part of VP, 8928 as a stub AS, and the path 701 4567 8928, what can be inferred about their relationship?"
+    },
+    {
+        "question": "Given the path 1239 3491 5400, and 1239 > 3491, transmission degree 3491 < 5400, but there exists a path ending with 3491 5400, what can be inferred about their relationship?"
+    },
+    {
+        "question": "Given 7018 as a clique member, 8487 as a stub AS, and the existence of the AS path 7018 8487, what can be inferred about their relationship?"
+    }
+]
