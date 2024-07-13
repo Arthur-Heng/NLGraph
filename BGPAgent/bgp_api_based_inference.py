@@ -3,14 +3,15 @@ import json
 from tqdm import tqdm
 from groq import Groq
 from openai import OpenAI
-# openai_client = OpenAI(
-#     api_key=os.environ.get("OPENAI_API_KEY"),
-#     base_url="https://openai.huggingtiger.asia/v1"
-# )
+openai_client = OpenAI(
+    api_key=os.environ.get("AI_HUB_MIX_API_KEY"),
+    base_url="https://aihubmix.com/v1"
+)
 groq_client = Groq(
     api_key=os.environ.get("GROQ_API_KEY"),
-    # base_url="https://groq.huggingtiger.asia/"
+    base_url="https://groq.huggingtiger.asia/",
 )
+
 
 naive_prompt = """
 你是一个BGP商业关系判断专家，请根据以下信息判断两个AS（自治域系统）之间的BGP商业关系
@@ -21,6 +22,7 @@ naive_prompt = """
 你需要输出各个AS之间的商业关系，格式为：ASN1-ASN2: <商业关系>
 """
 
+# 目前未使用
 system_prompt_rule = """
 你是一个BGP商业关系判断专家，请根据以下信息判断两个AS（自治域系统）之间的BGP商业关系
 
@@ -57,12 +59,7 @@ Input: <AS Path>, additional information (such as <clique>, <transit degree>, et
 
 <Business Relationship>: Please infer the business relationships between AS node pairs in the <AS Path>. The types of business relationships are p2c (provider-to-customer) and p2p (peer-to-peer).
 
-I'll give you an example to help you understand the task:
-Example: AS Path: 3356-1239-320, clique: 23, 32, transit degree: 2
-output_format: ASN1-ASN2: <Business Relationship>
-
 You need to:
-
 
 Output the business relationships between each AS pair in the following format:
 output_format: ASN1-ASN2: <Business Relationship>, after analyzing every AS pair in the <AS Path>, 
@@ -88,8 +85,7 @@ output_format: ASN1-ASN2: <Business Relationship>, after analyzing every AS pair
 you must return the results as a list in the form: ["ASN1-ASN2: ", "ASN3-ASN4: ", ...]
 """
 
-system_prompt = f"""{one_shot_system_prompt}"""
-
+system_prompt = f"""{zero_shot_system_prompt}"""
 
 
 user_content_list = []
@@ -98,7 +94,7 @@ with open("/home/yyc/NLGraph/BGPAgent/program_data/type1_input.json", "r") as f:
 
 output_list = []
 for user_content in tqdm(user_content_list):
-    message = [
+    messages = [
         {
             "role": "system",
             "content": system_prompt,
@@ -108,50 +104,58 @@ for user_content in tqdm(user_content_list):
             "content": user_content['question'],
         }]
     llama3_70b_chat_completion = groq_client.chat.completions.create(
-        model= "llama3-70b-8192",
-        messages=message,
+        model="llama3-70b-8192",
+        messages=messages,
         temperature=0.0  # Optional
-        )
-    llama3_8b_chat_completion = groq_client.chat.completions.create(
-        model= "llama3-8b-8192",
-        messages=message,
-        temperature=0.0  # Optional
-        )
-    mistral_8_7b_chat_completion = groq_client.chat.completions.create(
-        model= "mixtral-8x7b-32768",
-        messages=message,
-        temperature=0.0  # Optional
-        )
-    gemma_7b_chat_completion = groq_client.chat.completions.create(
-        model= "gemma-7b-it",
-        messages=message,
-        temperature=0.0  # Optional
-        )
-    # openai_chat_completion = openai_client.chat.completions.create(
-    #     model="gpt-4o",
-    #     messages=[
-    #         {
-    #         "role": "system",
-    #         "content": system_prompt,
-    #     },
-    #     {
-    #         "role": "user",
-    #         "content": user_content['question'],
-    #     }
-    # ],)
-    llama3_70b_output=llama3_70b_chat_completion.choices[0].message.content
-    llama3_8b_output=llama3_8b_chat_completion.choices[0].message.content
-    mistral_8_7b_output=mistral_8_7b_chat_completion.choices[0].message.content
-    gemma_7b_output=gemma_7b_chat_completion.choices[0].message.content
-    # gpt4_output=openai_chat_completion.choices[0].message.content
+    )
+    # llama3_8b_chat_completion = groq_client.chat.completions.create(
+    #     model= "llama3-8b-8192",
+    #     messages=message,
+    #     temperature=0.0  # Optional
+    #     )
+    # mistral_8_7b_chat_completion = groq_client.chat.completions.create(
+    #     model= "mixtral-8x7b-32768",
+    #     messages=message,
+    #     temperature=0.0  # Optional
+    #     )
+    # gemma_7b_chat_completion = groq_client.chat.completions.create(
+    #     model= "gemma-7b-it",
+    #     messages=message,
+    #     temperature=0.0  # Optional
+    #     )
+    openai_chat_completion = openai_client.chat.completions.create(
+        model="gpt-4o",
+        messages=messages,
+        temperature=0.0,
+    )
+    openai_turbo_chat_completion = openai_client.chat.completions.create(
+        model="gpt-4-turbo",
+        messages=messages,
+        temperature=0.0,
+    )
+    claude_chat_completion = openai_client.chat.completions.create(
+        model="claude-3-5-sonnet-20240620",
+        messages=messages,
+        temperature=0.0,
+    )
+    llama3_70b_output = llama3_70b_chat_completion.choices[0].message.content
+    # llama3_8b_output=llama3_8b_chat_completion.choices[0].message.content
+    # mistral_8_7b_output=mistral_8_7b_chat_completion.choices[0].message.content
+    # gemma_7b_output=gemma_7b_chat_completion.choices[0].message.content
+    gpt4_output = openai_chat_completion.choices[0].message.content
+    gpt4_turbo_output = openai_turbo_chat_completion.choices[0].message.content
+    claude3__5_output = claude_chat_completion.choices[0].message.content
     user_content["llama3-70b-answer"] = llama3_70b_output
-    user_content["mistral-8-7b-answer"] = mistral_8_7b_output
-    user_content["llama3-8b-answer"] = llama3_8b_output
-    user_content["gemma-7b-answer"] = gemma_7b_output
-    # user_content["gpt-4o-answer"] = gpt4_output
+    # user_content["mistral-8-7b-answer"] = mistral_8_7b_output
+    # user_content["llama3-8b-answer"] = llama3_8b_output
+    # user_content["gemma-7b-answer"] = gemma_7b_output
+    user_content["gpt-4o-answer"] = gpt4_output
+    user_content["gpt-4-turbo-answer"] = gpt4_turbo_output
+    user_content["claude-3-5-sonnet-20240620"] = claude3__5_output
     print(user_content)
     output_list.append(user_content)
+    with open("/home/yyc/NLGraph/BGPAgent/program_data/cache/cache.json", "w", encoding='utf-8') as f:
+        json.dump(output_list, f, ensure_ascii=False, indent=4)
 
-with open("/home/yyc/NLGraph/BGPAgent/program_data/type1_output_0709_one_shot_temperation=0_2.json", "w", encoding='utf-8') as f:
+with open("/home/yyc/NLGraph/BGPAgent/program_data/type1_output_0713_zero_shot_temperation=0.json", "w", encoding='utf-8') as f:
     json.dump(output_list, f, ensure_ascii=False, indent=4)
-
