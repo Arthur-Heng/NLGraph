@@ -20,8 +20,7 @@ def call_openai_chat(model, prompt, return_usage=False):
     )
 
     content = completion.choices[0].message.content
-    print("=== RAW RESPONSE ===")
-    print(completion)
+    print(content)
 
     if return_usage:
         return content, completion.usage.model_dump(), completion
@@ -47,14 +46,5 @@ def call_anthropic_claude(model_name, prompt, temperature=0.7, max_tokens=400):
     return response.content[0].text.strip()
 
 
-def call_gemini(model, prompt, temperature=0.7, max_tokens=400):
-    """
-    Stub for Gemini via Google Generative AI SDK.
-    """
-    # import google.generativeai as genai
-    # genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    # model = genai.GenerativeModel('gemini-pro')
-    # response = model.generate_content(...)
-    # return response.text
-    raise NotImplementedError("Gemini API wrapper not yet implemented.")
+
 
