@@ -17,10 +17,10 @@ from models.wrappers import (
 
 # Argument Parsing
 parser = argparse.ArgumentParser(description="cycle")
-parser.add_argument('--model', type=str, default="gpt-3.5-turbo", help='Model name (e.g. gpt-4o, claude-3)')
-parser.add_argument('--provider', type=str, default="openai", help='Provider: openai, anthropic, gemini, huggingface')
+parser.add_argument('--model', type=str, default="gpt-3.5-turbo", help='Model name')
+parser.add_argument('--provider', type=str, default="openai", help='Provider: openai, anthropic, gemini')
 parser.add_argument('--mode', type=str, default="easy", help='Difficulty mode: easy, medium, hard')
-parser.add_argument('--prompt', type=str, default="none", help='Prompting technique: CoT, PROGRAM, etc.')
+parser.add_argument('--prompt', type=str, default="none", help='Prompting technique')
 parser.add_argument('--T', type=int, default=0, help='Temperature (default: 0)')
 parser.add_argument('--token', type=int, default=400, help='Max tokens (default: 400)')
 parser.add_argument('--SC', type=int, default=0, help='Use self-consistency (default: 0)')
@@ -33,7 +33,6 @@ assert args.prompt in [
     "Algorithm", "Recitation", "hard-CoT", "medium-CoT"
 ]
 
-# Keep track of token usage
 total_input_tokens = 0
 total_output_tokens = 0
 
@@ -77,31 +76,34 @@ def translate(edge, n, args):
 @retry(wait=wait_random_exponential(min=1, max=30), stop=stop_after_attempt(3))
 def predict(Q_list, args):
     global total_input_tokens, total_output_tokens
-    temperature = 0.7 if args.SC else 0
     answer_list = []
+    raw_list = []
 
     if args.dry_run:
         print("\n========== DRY RUN: Prompt Only ==========\n")
         for i, prompt in enumerate(Q_list):
             print(f"\n--- Prompt #{i+1} ---\n{prompt}\n")
-        return ["(dry run - no API call)" for _ in Q_list]
+        return ["(dry run - no API call)" for _ in Q_list], []
 
     for prompt in Q_list:
         if args.provider == "openai":
-            response, usage = call_openai_chat(args.model, prompt, temperature, args.token, return_usage=True)
+            response, usage, raw = call_openai_chat(args.model, prompt, return_usage=True)
             total_input_tokens += usage.get("prompt_tokens", 0)
             total_output_tokens += usage.get("completion_tokens", 0)
         elif args.provider == "anthropic":
-            response = call_anthropic_claude(args.model, prompt, temperature, args.token)
+            response = call_anthropic_claude(args.model, prompt)
+            raw = f"Claude raw output (not structured):\n{response}"
         elif args.provider == "gemini":
-            response = call_gemini(args.model, prompt, temperature, args.token)
+            response = call_gemini(args.model, prompt)
+            raw = f"Gemini raw output (not structured):\n{response}"
         else:
             raise ValueError(f"Unsupported provider: {args.provider}")
+
         answer_list.append(response)
-    return answer_list
+        raw_list.append(str(raw))
+    return answer_list, raw_list
 
-
-def log(Q_list, res, answer, args):
+def log(Q_list, res, answer, raw_list, args):
     utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
     bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
     timestamp = bj_dt.now().strftime("%Y%m%d---%H-%M")
@@ -112,26 +114,33 @@ def log(Q_list, res, answer, args):
 
     np.save(os.path.join(folder, "res.npy"), res)
     np.save(os.path.join(folder, "answer.npy"), answer)
+
     with open(os.path.join(folder, "prompt.txt"), "w") as f:
         for Q in Q_list:
             f.write(Q + "\n\n")
         f.write(f"Acc: {res.sum()}/{len(res)}\n")
         print(args, file=f)
 
+    full_folder = f'log/cycle/fullresponses'
+    os.makedirs(full_folder, exist_ok=True)
+    with open(os.path.join(full_folder, f"{args.model}-{args.mode}-{timestamp}-{args.prompt}.txt"), "w", encoding="utf-8") as f:
+        for raw in raw_list:
+            f.write("=== RAW RESPONSE ===\n")
+            f.write(raw + "\n\n")
+
 def main():
     if not args.dry_run and 'OPENAI_API_KEY' not in os.environ:
         raise Exception("Missing OpenAI API Key!")
 
-    res, answer = [], []
+    res, answer, all_raw = [], [], []
 
     match args.mode:
         case "easy":
-            g_num = 10
+            g_num = 1
         case "medium":
             g_num = 600
         case "hard":
             g_num = 400
-
 
     batch_num = 20
     for i in tqdm(range((g_num + batch_num - 1) // batch_num)):
@@ -149,18 +158,22 @@ def main():
                 G_list.append(G)
 
         sc = args.SC_num if args.SC else 1
-        sc_list = []
+        sc_list = [[] for _ in range(sc)]
+        raw_sc_list = [[] for _ in range(sc)]
+
         for k in range(sc):
             print(f"Running call #{k + 1}...")
-            answer_list = predict(Q_list, args)
+            answer_list, raw_list = predict(Q_list, args)
             print(f"Finished call #{k + 1}")
-            sc_list.append(answer_list)
+            sc_list[k] = answer_list
+            raw_sc_list[k] = raw_list
 
         for j in range(len(Q_list)):
             vote = 0
             for k in range(sc):
                 ans = sc_list[k][j].lower()
                 answer.append(ans)
+                all_raw.append(raw_sc_list[k][j])
                 p1 = ans.find("there is no cycle")
                 p2 = ans.find("there is a cycle")
                 p1 = 1000000 if p1 == -1 else p1
@@ -172,13 +185,13 @@ def main():
 
     res = np.array(res)
     answer = np.array(answer)
-    log(Q_list, res, answer, args)
+    log(Q_list, res, answer, all_raw, args)
     print("Final Accuracy:", res.sum(), "/", len(res))
     print("\n=== Token Usage Summary ===")
     print(f"Total Input Tokens:  {total_input_tokens}")
     print(f"Total Output Tokens: {total_output_tokens}")
     total_cost = (total_input_tokens / 1000) * 0.005 + (total_output_tokens / 1000) * 0.015
-    print(f"Estimated Cost (GPT-4o): ${total_cost:.4f}")
+    print(f"Estimated Cost: ${total_cost:.4f}")
 
 if __name__ == "__main__":
     main()
