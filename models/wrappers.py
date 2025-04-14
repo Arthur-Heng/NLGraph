@@ -1,4 +1,3 @@
-# models/wrappers.py
 
 import anthropic
 from openai import OpenAI
@@ -7,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+deepseek_client = OpenAI( api_key=os.getenv("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com" )
 
 def call_openai_chat(model, prompt, return_usage=False):
     messages = [
@@ -26,24 +26,56 @@ def call_openai_chat(model, prompt, return_usage=False):
         return content, completion.usage.model_dump(), completion
     return content
 
+def call_deepseek_chat(model, prompt, return_usage=False):
+    messages = [
+        {"role": "user", "content": prompt}
+    ]
+
+    completion = deepseek_client.chat.completions.create(
+        model=model,
+        messages=messages
+    )
+
+    content = completion.choices[0].message.content
+    reasoning = completion.choices[0].message.reasoning_content
+
+    print("=== REASONING CONTENT ===")
+    print(reasoning)
+    print("=== FINAL ANSWER ===")
+    print(content)
+
+    if return_usage:
+        return content, {}, reasoning
+    return content
 
 
-def call_anthropic_claude(model_name, prompt, temperature=0.7, max_tokens=400):
-    """
-    Uses Anthropic Claude 3 (e.g., claude-3-opus-20240229) to generate a response.
-    """
+
+
+def call_anthropic_claude(model, prompt, return_usage=False):
+   
     client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
     response = client.messages.create(
-        model=model_name,
-        max_tokens=max_tokens,
-        temperature=temperature,
+        model=model,
+        max_tokens=400,  
+        thinking={
+            "type": "enabled",
+            "budget_tokens": 1000  
+        },
         messages=[
             {"role": "user", "content": prompt}
         ]
     )
 
-    return response.content[0].text.strip()
+    content = response.content[0].text.strip()
+
+    print("=== CLAUDE RESPONSE ===")
+    print(content)
+
+    if return_usage:
+        return content, {}, content  
+    return content
+
 
 
 

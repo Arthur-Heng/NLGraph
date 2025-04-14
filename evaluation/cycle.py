@@ -12,6 +12,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from models.wrappers import (
     call_openai_chat,
+    call_deepseek_chat,
     call_anthropic_claude,
 )
 
@@ -50,7 +51,7 @@ def translate(edge, n, args):
     Q += ".\n"
 
     Q += "Q: Is there a cycle in this graph?\n"
-    Q += "A: Please answer clearly with either 'Yes, there is a cycle.' or 'No, there is no cycle.'\n"
+    Q += "A: Please answer at the start clearly with either 'Yes, there is a cycle.' or 'No, there is no cycle.'\n"
 
     if args.prompt == "Instruct":
         Q += "Let's construct a graph with the nodes and edges first and solve the graph based on that\n"
@@ -98,7 +99,8 @@ def predict(Q_list, args):
         elif args.provider == "anthropic":
             response = call_anthropic_claude(args.model, prompt)
             raw = response
-       
+        elif args.provider == "deepseek":
+            response, _, raw = call_deepseek_chat(args.model, prompt, return_usage=True)
         else:
             raise ValueError(f"Unsupported provider: {args.provider}")
 
@@ -145,7 +147,7 @@ def main():
     }
 
     g_num = {
-        "easy": 1,
+        "easy": 10,
         "medium": 600,
         "hard": 400
 
